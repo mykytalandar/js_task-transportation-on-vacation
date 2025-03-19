@@ -8,15 +8,15 @@ function calculateRentalCost(days) {
   const MEDIUM_TERM_DISCOUNT = 20;
   const LONG_TERM_DISCOUNT = 50;
 
-  if (days >= 3 && days < 7) {
+  if (days < 3) {
+    return days * DAY_RATE;
+  }
+
+  if (days < 7) {
     return days * DAY_RATE - MEDIUM_TERM_DISCOUNT;
   }
 
-  if (days >= 7) {
-    return days * DAY_RATE - LONG_TERM_DISCOUNT;
-  }
-
-  return days * DAY_RATE;
+  return days * DAY_RATE - LONG_TERM_DISCOUNT;
 }
 
 module.exports = calculateRentalCost;
